@@ -45,9 +45,9 @@
   src: url("./assets/Fonts/BigShoulders/BigShouldersDisplay-VariableFont_wght.ttf");
 }
 
-::-webkit-scrollbar {
-  width: 0px;
-  display: none;
+body::-webkit-scrollbar {
+  width: 2px; 
+ display: none;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -58,6 +58,20 @@
   background: transparent;
 }
 ::selection {
-  background-color: #2d53ff; /* Gold background */
+  background-color: #025bff; /* Gold background */
   color: #e0e0e0; /* White text */
+}
+
+.react-calendar{
+  border : none;
+
+}
+.react-calendar__navigation__label{
+  font-family: 'Helvetica-Bold';
+  font-size: 14px;
+  text-wrap: nowrap;
+}
+
+abbr:where([title]) {
+  text-decoration: none;
 }

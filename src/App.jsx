@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/sonner"
 import Layout from './pages/Layout'
 import Packages from './Components/Packages/Packages'
 import Dashboard from './Admin/Dashboard/Dashboard'
+import SpecificPackage from './Components/Packages/SpecificPackage'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/employer/signup" element={<Signup role = "Employer" />} />
         <Route path="/signup" element={<Signup role = "Customer" />} />
         <Route path="/packages" element={<Packages />} />
+        <Route path="/package/:id" element={<SpecificPackage />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>

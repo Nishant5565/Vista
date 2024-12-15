@@ -8,6 +8,8 @@ import Logo from "../../assets/Images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "sonner"
+import { useContext } from "react";
+import { UserContext } from "../../Contexts/UserContext";
 
 
 const AuthForm = ({ mode, role }) => {
@@ -15,6 +17,7 @@ const AuthForm = ({ mode, role }) => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
   const initialValues = { userName: "", email: "", password: "", confirmPassword: "", role: role || "customer", remember: false };
+  const { setUser } = useContext(UserContext);
 
   const validationSchema = Yup.object({
     userName: Yup.string()
@@ -43,6 +46,7 @@ const AuthForm = ({ mode, role }) => {
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
       }
+      setUser(response.data.user);
       toast.success(mode === "signup" ? "Account created successfully" : "Logged in successfully", {description: response.data?.message})
       if (response.data.user.role === "Employer") {
         navigate("/admin/dashboard");
