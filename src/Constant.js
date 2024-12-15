@@ -1,5 +1,5 @@
 import axios from "axios";
-export const API_URL = 'http://localhost:5000/';
+export const API_URL = 'https://travel-agency-q1ld.onrender.com/';
 
 export const fetchApi = async (url, method, data) => {
      

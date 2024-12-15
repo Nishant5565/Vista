@@ -1,8 +1,34 @@
-# React + Vite
+# Vista Travel Agency
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vista is a travel agency application that allows users to explore and book travel packages. The application provides a seamless experience for both customers and administrators, offering features such as package management, booking, and user authentication.
 
-Currently, two official plugins are available:
+## Project Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Vista Travel Agency is designed to help users discover and book travel packages effortlessly. Customers can browse through various packages, view details, and make bookings. Administrators can manage packages, view bookings, and analyze booking data. The application is built using modern web technologies, including React, Vite, and Node.js.
+
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+
+### Frontend Setup
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/Nishant5565/Vista.git
+   cd Vista
+   npm start
+   ```
+
+### Features
+
+- **Home Page**: Introduction to the Vista Travel Agency.
+- **About Page**: Information about the Vista Travel Agency.
+- **Login Page**: Allows customers and employers to log in.
+- **Signup Page**: Allows customers and employers to create an account.
+- **Packages Page**: Displays a list of available travel packages.
+- **Specific Package Page**: Shows detailed information about a specific travel package.
+- **Admin Dashboard**: Allows administrators to manage packages and view analytics.
+- **User Dashboard**: Allows users to view their bookings.
+- **Receipt Page**: Displays the receipt for a booking.
