@@ -9,6 +9,8 @@ import Layout from './pages/Layout'
 import Packages from './Components/Packages/Packages'
 import Dashboard from './Admin/Dashboard/Dashboard'
 import SpecificPackage from './Components/Packages/SpecificPackage'
+import UserDashboard from './Components/Dashboard/Dashboard'
+import Reciept from './Components/Reciept/Reciept'
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
         <Route path="/packages" element={<Packages />} />
         <Route path="/package/:id" element={<SpecificPackage />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
+        <Route path="/user/dashboard" element={<UserDashboard />} />
+        <Route path = "/reciept/:id" element = {<Reciept />} />
         </Route>
       </Routes>
     </Router>

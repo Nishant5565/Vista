@@ -3,6 +3,7 @@ import ReactLenis, { useLenis } from '@studio-freight/react-lenis'
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import "./LandingPage.css";
+import { Link } from 'react-router-dom';
 
 function LandingPage() {
   const cursorRef = useRef(null);
@@ -61,24 +62,20 @@ function LandingPage() {
   
   return (
     <ReactLenis root >
-
-
+      <div
+        className="min-h-screen bg-gradient-to-r from-gray-100 via-white to-gray-50 text-gray-800 flex flex-col"
+        style={{ position: "relative" }}
+      > 
         <div
-          className="min-h-screen bg-gradient-to-r from-gray-100 via-white to-gray-50 text-gray-800 flex flex-col  "
-          style={{ position: "relative" }}
-        > 
-            <div
-        className="w-7 h-7 text-center bg-transparent cursor rounded-full absolute z-50 pointer-events-none text-[5px] flex items-center justify-center"
-        ref={cursorRef}
-      >
-       <p>
-       Costa Rica
-       </p>
-      </div>
+          className="w-7 h-7 text-center bg-transparent cursor rounded-full absolute z-50 pointer-events-none text-[5px] flex items-center justify-center"
+          ref={cursorRef}
+        >
+          <p>Costa Rica</p>
+        </div>
         <main className="flex-grow">
           <section
             id="home"
-            className=" bg-cover bg-center relative h-screen bg-fixed cursor-pointer home rounded-[20px] overflow-hidden "
+            className="bg-cover bg-center relative h-screen bg-fixed cursor-pointer home rounded-[20px] overflow-hidden"
             style={{
               backgroundImage:
                 "url('https://images.unsplash.com/photo-1675750318017-3d74ea862255?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
@@ -91,21 +88,48 @@ function LandingPage() {
               <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-200 opacity-90 animate-fade-in delay-200">
                 Your adventure starts here. Discover new places and experience unforgettable moments.
               </p>
-              <button className="bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 translate-y-20 duration-500">
-                Book Now
-              </button>
+              <Link to='/packages' className="bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 translate-y-20 duration-500">
+                Explore Packages
+              </Link>
             </div>
           </section>
-          <section id="about" className="py-20 text-center bg-gradient-to-b from-gray-50 to-gray-100">
-            <h2 className="text-4xl font-bold mb-6 text-teal-500">About Us</h2>
-            <p className="text-lg max-w-3xl mx-auto text-gray-600 leading-relaxed">
-              Vista Travel Agency is dedicated to providing the best travel experiences. We offer personalized travel
-              packages to suit your needs and ensure unforgettable journeys for all our clients.
-            </p>
-          </section>
+
+    <section id="about" className="bg-gradient-to-b from-gray-50 to-gray-100 rounded-[20px] overflow-hidden text-gray-800">
+    <div className=" rounded-[10px]  mx-auto bg-gradient-to-b from-gray-50 to-white overflow-hidden shadow-xl">
+
+  <h2 className="text-5xl font-extrabold text-gray-800 mb-16 text-center pt-10">
+    About Us
+  </h2>
+  <div className="bg-cover bg-center items-center justify-center relative h-screen flex bg-fixed rounded-[20px] overflow-hidden"
+  style={{
+    backgroundImage: "url('https://images.unsplash.com/photo-1675750318017-3d74ea862255?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+  }}
+  >
+    <div className='bg-[black] bg-opacity-40 h-screen flex items-center justify-center p-10 rounded-lg'>
+    <div className="lg:w-1/2 text- leading-relaxed text-white space-y-6">
+      <p>
+        Welcome to <span className=" playwrite">Vista</span>, where dreams meet destinations. 
+        We specialize in curating unforgettable travel experiences tailored to your unique desires.
+      </p>
+      <p>
+        Our passion for travel drives us to craft seamless journeys that combine comfort, adventure, and cultural exploration. 
+        From serene getaways to vibrant city adventures, we bring your travel aspirations to life.
+      </p>
+      <p>
+        With a commitment to excellence and years of expertise, Vista Travel Agency is your trusted partner in discovering the world. 
+        Start your next adventure with us and create memories that will last a lifetime.
+      </p>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+      </section>
+
 
           <section id="services" className="py-20 text-center bg-white">
-            <h2 className="text-4xl font-bold mb-6 text-green-600">Our Services</h2>
+            <h2 className="text-4xl font-bold mb-6 text-black">Our Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
               {[
                 {
@@ -134,27 +158,12 @@ function LandingPage() {
                     alt={service.title}
                     className="rounded-t-lg w-full h-40 object-cover"
                   />
-                  <h3 className="text-xl font-bold text-teal-500 mt-4 mb-2">{service.title}</h3>
-                  <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h3 className="text-xl font-bold mt-4 mb-2">{service.title}</h3>
+                  <p className="text-gray-600">{service.description}</p>
                 </div>
               ))}
             </div>
           </section>
-
-          {/* Contact Us Section */}
-          <section id="contact" className="py-20 text-center bg-gradient-to-t from-gray-100 to-white">
-            <h2 className="text-4xl font-bold mb-6 text-green-600">Contact Us</h2>
-            <p className="text-lg text-gray-600 mb-2">Email: info@vistatravelagency.com</p>
-            <p className="text-lg text-gray-600">Phone: +123 456 7890</p>
-            <div className="mt-6">
-              <button className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
-                Send Message
-              </button>
-            </div>
-          </section>
-          <footer className="bg-gray-100 p-6 text-center text-gray-500">
-          <p>&copy; 2023 Vista Travel Agency. All rights reserved.</p>
-        </footer>
         </main>
       </div>
     </ReactLenis>

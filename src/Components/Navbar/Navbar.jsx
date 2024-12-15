@@ -23,7 +23,19 @@ const Navbar = () => {
          user?.role === 'Employer' ?(
             <Link to="/admin/dashboard" className="hover:text-gray-200 transition duration-300 p-2">Dashboard</Link>
           ) : (
-            <Link to="/user/dashboard" className="hover:text-gray-200 transition duration-300 p-2">Dashboard</Link>
+            <>
+              {
+                user?.role === 'Customer' &&
+                 <Link to="/user/dashboard" className="hover:text-gray-200 transition duration-300 p-2">Dashboard</Link>
+              }
+            </>
+           
+          )
+        }
+
+        {
+          user?.role == 'Customer' && (
+            <Link to="/packages" className="hover:text-gray-200 transition duration-300 p-2">Packages</Link>
           )
         }
 
@@ -31,7 +43,7 @@ const Navbar = () => {
               <div className="flex items-center space-x-4">
                 <span>Hi {user.userName} !</span>
                 <button
-                  className="bg-red-500 text-white px-2 py-1 rounded-lg"
+                  className="bg-red-500 text-white px-3 py-2 rounded-lg"
                   onClick={() => {
                     localStorage.removeItem('token');
                     setUser(null);

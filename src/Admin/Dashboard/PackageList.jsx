@@ -8,10 +8,25 @@ import {
      DialogTrigger,
    } from "@/components/ui/dialog";
 import AddPackage from './AddPackage';
+import { fetchApi } from '@/Constant';
+import {toast} from 'sonner'
 
 const PackageList = ({ packages , fetchPackages}) => {
      const [selectedPackage, setSelectedPackage] = useState(null);
-     const [isOpen, setIsOpen] = useState(false);
+     console.log(packages);
+     const handleDelete = async (id) => {
+          window.confirm('Are you sure you want to delete this package?');
+          try {
+               const response = await fetchApi(`api/admin/packages/${id}`, 'DELETE');
+               if (response.status === 200) {
+                    fetchPackages();
+                    toast.success('Package deleted successfully');
+               }
+          } catch (error) {
+               console.error('Error deleting package:', error);
+          }
+     }
+
      return (
           <div className="flex flex-nowrap gap-4">
                {packages.length > 0 && packages.map(pkg => (
@@ -36,7 +51,10 @@ const PackageList = ({ packages , fetchPackages}) => {
                                         <p className="text-gray-600 mt-4">{selectedPackage?.description}</p>
                                         <p className="text-gray-800 font-semibold mt-4">${selectedPackage?.price}</p>
                                    </DialogDescription>
-                              <AddPackage mode="edit" packageData={selectedPackage} fetchPackages = {fetchPackages}/>
+                         <div className='flex justify-center'>
+                         <AddPackage mode="edit" packageData={selectedPackage} fetchPackages = {fetchPackages}/>
+                         <button onClick={() => handleDelete(selectedPackage?._id)} className="bg-red-600 text-white px-4 py-2 my-2 mx-auto rounded-lg">Delete</button>
+                         </div>
                          </DialogContent>
                          
                     </Dialog>
