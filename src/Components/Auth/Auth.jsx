@@ -44,11 +44,11 @@ const AuthForm = ({ mode, role }) => {
         localStorage.setItem("token", response.data.token);
       }
       toast.success(mode === "signup" ? "Account created successfully" : "Logged in successfully", {description: response.data?.message})
-      if (response.data.user.role === "employer") {
-        // navigate("/employer/dashboard");
+      if (response.data.user.role === "Employer") {
+        navigate("/admin/dashboard");
       }
       else {
-        // navigate("/customer/dashboard");
+        navigate("/packages");
       }
       setSubmitting(false);
     } catch (error) {
@@ -70,7 +70,7 @@ const AuthForm = ({ mode, role }) => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center px-4 bg-[#392381]"
+      className="min-h-screen flex items-center justify-center px-4 bg-[#392381] rounded-[20px]"
       style={{
         backgroundImage: `url(${LoginBg})`,
         transform  : "rotateY(180deg)",
@@ -89,8 +89,13 @@ const AuthForm = ({ mode, role }) => {
           className="w-36 filter brightness-[10000]"
         />
 
-          <h1 className="text-5xl text-white font-bold">Welcome to Vista</h1>
-          <p className="text-white mt-4">Delivering packages with ease and efficiency.</p>
+          <h1 className="text-5xl text-white font-bold text-center" >Welcome to Vista
+            <br />
+            {role == "Employer" && " Admin Panel"}</h1>
+          <p className="text-white mt-4"> {
+            role === "Employer" ? "Manage your business with Vista" : "Travel the world with Vista"
+            }
+          </p>
         </div>
         <div className="bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-30 rounded-2xl px-10 py-8 w-full max-w-md shadow-lg">
           <h2 className="text-2xl text-start text-white mb-10">

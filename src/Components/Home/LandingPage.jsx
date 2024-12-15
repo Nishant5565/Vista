@@ -64,7 +64,7 @@ function LandingPage() {
 
 
         <div
-          className="min-h-screen bg-gradient-to-r from-gray-100 via-white to-gray-50 text-gray-800 flex flex-col "
+          className="min-h-screen bg-gradient-to-r from-gray-100 via-white to-gray-50 text-gray-800 flex flex-col  "
           style={{ position: "relative" }}
         > 
             <div
@@ -78,14 +78,13 @@ function LandingPage() {
         <main className="flex-grow">
           <section
             id="home"
-            className="flex flex-col items-center justify-center text-center py-20 bg-cover bg-center relative h-screen bg-fixed cursor-pointer home"
+            className=" bg-cover bg-center relative h-screen bg-fixed cursor-pointer home rounded-[20px] overflow-hidden "
             style={{
               backgroundImage:
                 "url('https://images.unsplash.com/photo-1675750318017-3d74ea862255?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
             }}
           >
-            <div className="absolute inset-0 rounded-xl"></div>
-            <div className="relative z-10">
+            <div className="relative z-10 bg-[#00000029] h-screen w-full justify-center items-center flex flex-col text-center">
               <h2 className="text-5xl font-extrabold mb-6 text-white drop-shadow-lg animate-fade-in">
                 Explore the World with VISTA
               </h2>
